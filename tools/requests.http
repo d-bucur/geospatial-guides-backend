@@ -1,0 +1,38 @@
+@host = http://localhost:8080
+
+###
+GET {{host}}/places/search?term=Milano&lat=45.463292&long=9.189818
+
+###
+GET {{host}}/places/nearby?lat=45.463292&long=9.189818&distance=300
+
+###
+GET {{host}}/places/58/guides
+
+###
+GET {{host}}/guides/40
+
+###
+GET {{host}}/guides/40/download
+
+###
+POST {{host}}/guides/40/purchase
+
+###
+POST {{host}}/users/login
+content-type: application/json
+
+{
+    "user": "example@gmail.com"
+}
+
+###
+POST {{host}}/users/tokensignin
+content-type: application/json
+
+{
+    "idToken": "TOKEN"
+}
+
+###
+POST {{host}}/users/logout

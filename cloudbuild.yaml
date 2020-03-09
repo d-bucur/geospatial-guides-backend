@@ -1,0 +1,14 @@
+steps:
+
+# Tests on cloud build are disabled. python builder image is not working
+#- name: "index.docker.io/grihabor/pytest:python3.7-alpine"
+#  entrypoint: pip
+#  args: ['install', '-r', 'requirements.txt']
+#
+#- name: "index.docker.io/grihabor/pytest:python3.7-alpine"
+#  entrypoint: pytest
+#  args: ['pytest']
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: [ 'app', 'deploy', '-v', 'master-$SHORT_SHA' ]
+  timeout: 600s
